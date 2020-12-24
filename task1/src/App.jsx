@@ -10,14 +10,19 @@ constructor(props){
   super(props);
   this.addTask = this.addTask.bind(this);
   this.deleteTask = this.deleteTask.bind(this);
-  
+  this.updateTask = this.updateTask.bind(this);
   this.state ={
     cards:[],
     formOpen:false,
-
+    
   };
  
 }
+
+  updateTask(index,data){
+    this.state.cards[index] = data;
+    this.setState({cards:this.state.cards});
+  }
   addTask(newTask){
     
     this.setState({...this.state,cards:[
@@ -48,6 +53,7 @@ constructor(props){
          dataTo={e.dataTo}
          type={e.type}
          delete={this.deleteTask}
+         update={this.updateTask}
          
          />
        )})}
