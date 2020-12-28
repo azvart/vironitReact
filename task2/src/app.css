@@ -1,0 +1,33 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.add_task{
+    text-align: right;
+  
+}
+.add_task>button{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor:pointer;
+    font-size: 24px;
+    background-color: lightcoral;
+    color:white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+button:focus{
+    outline: none;
+}
+button:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card_container{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+}
