@@ -14,3 +14,10 @@ export const DeleteTask = (id)=>{
         payload:id
     }
 }
+
+export const UpdateTask = (newData)=>{
+    return{
+        type:"UPDATE_TASK",
+        payload:newData
+    }
+}

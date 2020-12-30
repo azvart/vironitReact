@@ -1,3 +1,102 @@
 .form-page{
     text-align: center;
+    width: 100%;
+  
+}
+.form-container{
+    width: 100%;
+}
+.form-container>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.input-field{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.input-field>label{
+    flex-grow: 1;
+}
+.input-field>input{
+    padding: 10px;
+    flex-grow: 1;
+    width: 250px;
+    height: 30px;
+    margin:10px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.input-field>input:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.input-field>input:focus{
+    outline: none;
+}
+
+select{
+    width: 250px;
+    height: 30px;
+    margin:10px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+select:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+select:focus{
+    outline: none;
+}
+textarea{
+    width: 250px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    margin: 10px;
+}
+textarea:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.added{
+    width: 100%;
+    margin-top:10px;
+
+}
+.added>input{
+    width: 250px;
+    height: 30px;
+    border: none;
+    
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.added>input:hover{
+    background-color: lightcoral;
+    color: #fff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.added>input:focus{
+    outline: none;
+}
+.more{
+    width: 100%;
+    margin-top:10px;
+}
+.more>button{
+    width: 250px;
+    height: 30px;
+    border: none;
+    
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.more>button:hover{
+    background-color: lightcoral;
+    color: #fff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }

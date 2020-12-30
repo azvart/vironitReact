@@ -1,44 +1,39 @@
 import React from 'react';
-import {DeleteTask} from '../../store/actions';
+import {DeleteTask,UpdateTask} from '../../store/actions';
 import {connect} from 'react-redux';
+import './cards.css';
+import Card from './card/card';
 
 const Cards = (props)=>{
-    const{data,match,DeleteTaskAction} = props;
+    const{data,match,DeleteTaskAction,UpdateTaskAction} = props;
    
     const state = data.filter((e)=> `/${e.type}` === match.path);
  
-    console.log(state);
+    
+   
     const removeItem=(id)=>{
         DeleteTaskAction(id);
+        console.log(data);
     }
     return(
         <div className="card-container">
                 {state.map((e,index)=>{
-                    return (<div key={index} className='card'>
-                        <div className='card-top'>
-                            {e.type}
-                            <button className='card-delete' onClick={()=>removeItem(e.id)}>
-                                x
-                            </button>
-                        </div>
-                        <div className="card-title">
-                            <h3>
-                                {e.firstName}
-                                {e.lastName}
-                            </h3>
-                            <p>{e.email}</p>
-                        </div>
-                        <div className="card-body">
-                            {e.comment}
-                        </div>
-                        <div className="card-report">
-                            {e.report? 'Make report':'Dont make report'}
-                        </div>
-                        <div className="card-time">
-                            <span>From: {e.dataFrom}</span>
-                            <span>To: {e.dataTo}</span>
-                        </div>                        
-                    </div>)
+                    return <Card key={index}
+                    firstName={e.firstName} 
+                    lastName={e.lastName} 
+                    email={e.email} 
+                    type={e.type} 
+                    comment={e.comment} 
+                    removeItem={removeItem}
+                    report={e.report}
+                    dataFrom={e.dataFrom}
+                    dataTo={e.dataTo}
+                    id={e.id}
+                    updateTask={UpdateTaskAction}
+                    
+                    />
+                    
+                    
                 })}
         </div>
     )
@@ -56,7 +51,8 @@ const mapStateToProps = (store)=>{
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        DeleteTaskAction:(id)=>dispatch(DeleteTask(id))
+        DeleteTaskAction:(id)=>dispatch(DeleteTask(id)),
+        UpdateTaskAction:(newData)=>dispatch(UpdateTask(newData))
     }
 }
 

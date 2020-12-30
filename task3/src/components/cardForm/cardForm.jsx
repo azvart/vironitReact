@@ -4,20 +4,11 @@ import InputField from '../inputField/input';
 import Select from '../inputField/select';
 import TextField from '../inputField/textfield';
 const CardForm =(props)=>{
-    const{AddTask} = props;
+    const{AddTask,form,setForm} = props;
     const[openComment,setOpenComment] = useState(false);
-    const[form,setForm] = useState({
-        firstName:'',
-        lastName:'',
-        email:'',
-        type:'All',
-        comment:'',
-        report:false,
-        dataFrom:'',
-        dataTo:'',
-        setType:["Work","Home","Another"],
-        
-    });
+    
+ 
+    
     const addTask=(event)=>{
         event.preventDefault();
         
@@ -68,7 +59,7 @@ const CardForm =(props)=>{
                             setTypes={form.setType}
                             change = {(e)=>setForm({...form,type:e.target.value})}
                             />
-                            <div>
+                            <div className='more'>
                                 <button className='open-comment' onClick={()=>setOpenComment(!openComment)}>
                                     More
                                 </button>

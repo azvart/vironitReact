@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './app.css';
 import {BrowserRouter,Link,Switch,Route} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -13,9 +13,25 @@ import Cards from './components/cards/cards';
 
 
 
+
 const App =(props)=>{
   const typeSort =['Work','Home',"Another"];
+
   const{AddTaskAction} = props;
+
+  const[form,setForm] = useState({
+    firstName:'',
+    lastName:'',
+    email:'',
+    type:'All',
+    comment:'',
+    report:false,
+    dataFrom:'',
+    dataTo:'',
+    setType:["Work","Home","Another"],
+    
+});
+
   return(
   <BrowserRouter>
       <LinkPage>
@@ -30,8 +46,9 @@ const App =(props)=>{
 
         <Switch>
           <Route  path='/All' component={Cards} />
+         
           <Route path='/addTask'>
-            <CardForm AddTask={AddTaskAction}/>
+            <CardForm form={form} setForm={setForm} AddTask={AddTaskAction}/>
           </Route>
           {typeSort.map((e,index)=>{
             return <Route key={index} path={`/${e}`} component={Cards}/>
