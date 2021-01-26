@@ -1,0 +1,11 @@
+@import "../variables/index.scss";
+@mixin Background {
+  @each $prefix, $color in($background) {
+    .bg-#{$prefix} {
+      background-color: $color;
+    }
+    .text-#{$prefix} {
+      color: $color;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import "../variables/index.scss";
+
+@mixin Button {
+  .btn {
+    width: 227px;
+    height: 55px;
+    border-radius: 5px;
+    background: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    font-size: 18px;
+    letter-spacing: 0px;
+    line-height: 34px;
+    font-weight: 700;
+    &:focus {
+      outline: none;
+    }
+  }
+  @each $prefix, $color in ($background) {
+    .btn-#{$prefix} {
+      border: 2px solid $color;
+      color: $color;
+      &:hover {
+        background-color: $color;
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@mixin Navigation {
+  .navigation {
+    height: 89px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    
+  }
+}

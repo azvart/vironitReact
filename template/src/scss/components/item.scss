@@ -1,0 +1,18 @@
+@mixin Item{
+    @each $direction in (row,column){
+        @each $wrap in (wrap,nowrap){
+            @for $i from 1 through 10{
+        .item-#{$direction}-#{$wrap}-#{$i}{
+            display: flex;
+            flex-flow: $direction $wrap; 
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            .basis{
+                flex-basis: 100% / $i;
+            }
+        }
+    }
+    }
+    }
+}

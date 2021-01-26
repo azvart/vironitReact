@@ -1,0 +1,16 @@
+@import '../variables/index.scss';
+@mixin Input{
+    .input-width{
+        width: $WidthInput;
+        
+    }
+    .input{
+        height: $HeightInput;
+       padding: 10px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        &:focus{
+            outline: none;
+        }
+    }
+}

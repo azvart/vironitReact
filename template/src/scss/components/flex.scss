@@ -1,0 +1,27 @@
+@import './item.scss';
+@mixin Flex{
+    .container{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+        &>*{
+            max-width: 1249px;
+            margin: auto;
+        }
+        @include Item;
+        @for $i from 1 through 10{
+        .item-column-wrap-#{$i}{
+            .basis{
+            max-width: 100% / $i;
+            }
+        }
+    }
+    @for $i from 1 through 10{
+        .item-row-wrap-#{$i}{
+            .basis{
+                max-width: 100% / $i;
+            }
+        }
+    }
+    }
+}

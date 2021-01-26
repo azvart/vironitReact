@@ -1,0 +1,37 @@
+@import "../variables/index.scss";
+@mixin Default {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1em;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+  }
+  body {
+    margin: auto;
+    max-width: $MaxWidthBody;
+  }
+  .item {
+    max-width: $MaxWidth;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .icon-card{
+    width: 197px;
+    height: 214px;
+  }
+  .footer{
+    height:111px;
+    background-color: #313030;
+  }
+  .icon{
+    width: auto !important;
+    height: auto !important;
+  }
+}

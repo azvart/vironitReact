@@ -1,0 +1,7 @@
+@mixin AligmentText {
+  @each $align in(center, right, left) {
+    .text-#{$align} {
+      text-align: $align;
+    }
+  }
+}

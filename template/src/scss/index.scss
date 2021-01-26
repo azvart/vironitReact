@@ -1,0 +1,28 @@
+@import "./functions/index.scss";
+@import './components/flex.scss';
+@import "./components/default.scss";
+@import './components/margin-padding.scss';
+@import "./components/centerText.scss";
+@import "./components/background.scss";
+@import "./components/navigation.scss";
+@import "./components/alignItems.scss";
+@import './components/input.scss';
+@import "./components/button.scss";
+@import "./components/link.scss";
+@import "./components/form.scss";
+@include Form;
+@include margin-padding;
+@include Flex;
+@include justify;
+@include Link;
+@include Button;
+@include Input;
+@include headers;
+@include paragraph;
+@include AlignItems;
+@include Navigation;
+@include Background;
+@include AligmentText;
+
+@include Default;
+

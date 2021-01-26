@@ -1,0 +1,12 @@
+@mixin AlignItems {
+  @each $align in(center, baseline, end) {
+    .align-#{$align} {
+      align-items: $align !important;
+    }
+  }
+  @each $justify in(end,start,center,space-between){
+    .justify-#{$justify}{
+      justify-content: $justify !important;
+    }
+  }
+}

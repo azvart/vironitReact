@@ -1,0 +1,23 @@
+@import "../variables/index.scss";
+@mixin margin-padding{
+    @each $prefix, $size in($margped){
+        .mx-#{$prefix}{
+            margin: $size 0px;
+        }
+        .my-#{$prefix}{
+            margin: 0px $size;
+        }
+        .px-#{$prefix}{
+            padding: $size 0px;
+        }
+        .py-#{$prefix}{
+            padding: 0px $size;
+        }
+        .ma-#{$prefix}{
+            margin: $size $size;
+        }
+        .pa-#{$prefix}{
+            padding: $size $size;
+        }
+    }
+}
