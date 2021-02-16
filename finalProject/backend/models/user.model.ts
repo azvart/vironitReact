@@ -5,7 +5,9 @@ export interface User extends Document{
     email:string,
     password:string,
     date:string,
-    avatar:string
+    avatar:string,
+    photo:[],
+    userName:string
 }
 
 export interface UserMode extends Model<User>{
@@ -16,6 +18,10 @@ const UserSchema:Schema = new Schema({
     name:{
         type:String,
         required:true
+    },
+    userName:{
+        type:String,
+        required:true,
     },
     email:{
         type:String,
@@ -32,8 +38,15 @@ const UserSchema:Schema = new Schema({
     date:{
         type:String,
         default: Date.now
+    },
+    photo:{
+        
+        type:Array
+   
     }
 })
+
+
 
 const User = mongoose.model('users',UserSchema);
 

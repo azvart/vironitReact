@@ -56,7 +56,7 @@ export const GettingUsers =(req:Request,res:Response)=>{
 
 
 export const RegisterUser = (req:any,res:Response)=>{
-    User.findOne({name:req.body.name,email:req.body.email}).then((user)=>{
+    User.findOne({name:req.body.name,email:req.body.email,userName:req.body.userName}).then((user)=>{
         if(user){
             return res.status(400).json({message:"Username or email already exist"});
         }else{
@@ -64,6 +64,7 @@ export const RegisterUser = (req:any,res:Response)=>{
                 name:req.body.name,
                 email:req.body.email,
                 password:req.body.password,
+                userName:req.body.userName
             });
             bcrypt.genSalt(10,(err,salt)=>{
                 bcrypt.hash(newUser.password,salt,(err,hash)=>{
@@ -90,7 +91,9 @@ export const RegisterUser = (req:any,res:Response)=>{
                                     res.json({
                                         success:true,
                                         token: "Bearer " + token,
-                                        name: user.name
+                                        name: user.name,
+                                        userName:user.userName,
+                                        userId:user._id,
                                     });
                                 }
                             }
@@ -129,6 +132,7 @@ export const LoginUser = (req:any,res:Response)=>{
                             success:true,
                             token: "Bearer " + token,
                             name:user.name,
+                            userName:user.userName,
                             userId:user._id,
                         });
                     }

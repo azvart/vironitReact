@@ -28,19 +28,19 @@ export const TokenVerification = (req:Request,res:Response,next:NextFunction)=>{
 export const Global =(req:Request,res:Response)=>{
     GlobalMessage.aggregate([
         {
-            $lookup:{
-                from:'users',
-                localField:'from',
-                foreignField:'_id',
-                as:'fromObj',
+            $lookup: {
+                from: 'users',
+                localField: 'from',
+                foreignField: '_id',
+                as: 'fromObj',
             },
         },
     ])
-    .project({
-        'fromObj.password':0,
-        'fromObj.__v':0,
-        'fromObj.date':0,
-    })
+        .project({
+            'fromObj.password': 0,
+            'fromObj.__v': 0,
+            'fromObj.date': 0,
+        })
     .exec((err,messages)=>{
         if(err){
             console.log(err);
@@ -48,6 +48,7 @@ export const Global =(req:Request,res:Response)=>{
             res.end(JSON.stringify({message:'Failure'}));
             res.sendStatus(500);
         }else{
+            console.log(messages);
             res.send(messages);
         }
     })
@@ -55,13 +56,14 @@ export const Global =(req:Request,res:Response)=>{
 
 
 export const PostGlobal = (req:any,res:Response)=>{
-    const message = new GlobalMessage({
+    
+    let message = new GlobalMessage({
         from:jwtUser.id,
         body:req.body.body
     });
-
+    console.log(message);
     req.io.sockets.emit('messages',req.body.body);
-
+    
     message.save((err)=>{
         if(err){
             console.log(err);
@@ -150,6 +152,7 @@ export const GetConversation =(req:any,res:Response)=>{
             res.end(JSON.stringify({ message: 'Failure' }));
             res.sendStatus(500);
         }else{
+            console.log(messages);
             res.send(messages);
         }
     })
@@ -186,6 +189,7 @@ export const PostPrivateMessgae = (req:any,res:Response)=>{
                     from:jwtUser.id,
                     body:req.body.body,
                 });
+                console.log(message);
                 req.io.sockets.emit('messages',req.body.body);
 
                 message.save((err)=>{

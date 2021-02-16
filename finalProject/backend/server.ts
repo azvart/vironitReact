@@ -5,7 +5,8 @@ import cors from 'cors';
 import * as socket from 'socket.io';
 import userRouter from './routes/user.routes';
 import messageRouter from './routes/message.routes';
-
+import googleAuth from './routes/google-auth.routes';
+import Gallery from './routes/file.routes';
 
 
 //Server PORT
@@ -28,7 +29,7 @@ const io:socket.Server = new socket.Server(server,{
 
 
 //Connected DB
-mongoose.connect('mongodb://localhost:27017/finalProject',{
+ mongoose.connect('mongodb://localhost:27017/finalProject',{
     useNewUrlParser:true,
     useFindAndModify:false,
     useUnifiedTopology:true
@@ -62,3 +63,5 @@ app.use((req:any,res,next)=>{
 
 app.use(userRouter);
 app.use(messageRouter);
+app.use(Gallery);
+app.use(googleAuth);

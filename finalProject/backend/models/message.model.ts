@@ -23,7 +23,8 @@ const MessagesSchema:Schema = new Schema({
     },
     from:{
         type:Schema.Types.ObjectId,
-        ref:'users'
+        ref:'users',
+        
     },
     body:{
         type:String,
